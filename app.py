@@ -10,10 +10,11 @@ model = genai.GenerativeModel('gemini-pro')
 def generate_content(user_request, season, duration, people, style, transport):
     prompt = f"""
     You are an expert at planning overseas trips.
-    Your are an expert for finding local food and excellent restaurants.
+    Your are good at finding local food and excellent restaurants.
 
     Please take the user's request and plan a comprehensive trip for them.
     Have a summary of user request and plan the trip accordingly.
+    Give resturant reservation information and local food recommendations for each day
 
     Travel season: {season}
     Duration of the trip: {duration} days
@@ -28,7 +29,8 @@ def generate_content(user_request, season, duration, people, style, transport):
     response = model.generate_content(prompt)
     return response.text
 
-st.title("🏝️ Your Travel Planner")
+st.title(" 🏖️Taste Trekker")
+st.subheader("Your Personal Travel Planner Good at Finding Local Food and Excellent Restaurants")
 
 # User Inputs
 user_request = st.text_area("Enter your travel request (destination, activities, etc.):")
